@@ -1,0 +1,26 @@
+name: Copy files
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Transfer files in repository to Remote Server via SCP
+      uses: pierrickdelrieu/scp-action@0.1.1      
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        ssh_port: ${{ secrets.DESTINATION_SSH_PORT }}
+        ssh_username: ${{ secrets.SERVER_USER }}
+        source_dir: ${{ secrets.SOURCE_FOLDER }}
+        ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        destination_dir: ${{ secrets.DESTINATION_FOLDER }}
+        rm: true
