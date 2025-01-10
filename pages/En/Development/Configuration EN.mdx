@@ -1,0 +1,104 @@
+---
+title: Configuration
+description: the section is devoted to the ASI configuration
+---
+
+# Configuration Documentation for Asya
+
+Asya supports two methods for setting parameters: **environment variables** and a **configuration file** named `config.lua`. The configuration file should be placed at `$HOME/.config/asya/config.lua`. All parameters have default values described in the configuration file, which are also hardcoded into the configuration logic. Therefore, if any parameter is omitted, Asya will issue a warning but will proceed with default values.
+
+Currently, the following configuration parameters are available in Asya:
+
+## Configuration Parameters
+
+| Table         | Field              | Environment Variable | Default Value            | Description |
+|---------------|--------------------|----------------------|--------------------------|-------------|
+| **net**       | `ws_port`          | `NET_WS_PORT`        | 3001                     | Port for the WebSocket server. |
+| **net**       | `ws_ip`            | `NET_WS_IP`          | "127.0.0.1"              | IP address for the WebSocket server. |
+| **logging**   | `place`            | `LOGGING_PLACE`      | false                    | Flag to include the filename where the logging method was invoked. |
+| **logging**   | `folder`           | `LOGGING_FOLDER`     | "logs"                   | Directory where logs will be stored. |
+| **logging**   | `filescount`       | `LOGGING_FILESCOUNT` | 5                        | Number of log files to retain. |
+| **logging**   | `level`            | `LOGGING_LEVEL`      | "info"                   | Logging level (e.g., "debug", "info", "warn", "error"). |
+| **logging**   | `stdout`           | `LOGGING_STDOUT`     | true                     | Flag to enable logging output to the console (stdout). |
+| **ai**        | `prompts_path`     | `AI_PROMPTS_PATH`    | "./ai-prompts.yaml"      | Path to the AI prompts file. |
+| **ai**        | `groq_token`       | `AI_GROQ_TOKEN`      | "NOT"                    | Token for accessing the Groq API (command recognition and response generation). |
+| **plugins**   | `plugins_folder`   | `PLUGINS_FOLDER`     | "plugins"                | Directory containing plugins. |
+| **plugins**   | `config`           | `PLUGINS_CONFIG`     | -                        | Plugin configuration represented as a dictionary. |
+| **open_apps** | `terminal`         | `OPEN_APPS_TERMINAL` | -                        | Path to the terminal to be opened. |
+| **open_apps** | `browser`          | `OPEN_APPS_BROWSER`  | -                        | Path to the browser to be opened. |
+
+<!-- | **ai**        | `recognize_method` | `AI_RECOGNIZE_METHOD`| `Groq`                    | Input recognition method. Possible values: `Groq`, `AltaS`, `None`. | -->
+<!-- | **ai**        | `alta_s_addr`      | `AI_ALTA_S_ADDR`     | -                         | Address for the AltaS model. | -->
+<!-- | **ai**        | `autolaunch_alta_s`| `AI_AUTOLAUNCH_ALTAS`| false                     | Flag to auto-launch the AltaS model. | -->
+<!-- | **ai**        | `alta_s_path`      | `AI_ALTA_S_PATH`     | -                         | Path to the AltaS model file for auto-launching. | -->
+
+## Parameter Details
+
+1. **net**:
+   - These parameters configure the server's network settings:
+     - `ws_port`: Port on which the WebSocket server listens. Default is `3001`.
+     - `ws_ip`: IP address the WebSocket server binds to. Default is `localhost` (`127.0.0.1`).
+     <!-- - `proxy_addr`: Proxy address (to be implemented in the future). -->
+
+2. **logging**:
+   - Logging configuration defines where and how system activity is logged:
+     - `place`: Indicates whether the filename invoking the logging method should be included. For example:  
+       ```src/logging.rs:24: 2025-01-05 00:13:21 SERVER INFO >>> Logging level: DEBUG```
+     - `folder`: Directory for storing log files.
+     - `filescount`: Number of log files retained in the folder (feature to be implemented).
+     - `level`: Logging level such as `info` for general messages or `debug` for troubleshooting.
+     - `stdout`: Indicates whether logs should be printed to the console.
+
+3. **ai**:
+   - AI configuration parameters control the behavior of the AI system:
+     - `prompts_path`: Path to the file with predefined AI interaction prompts.
+     - `groq_token`: Token for accessing the Groq service.
+     <!-- - `recognize_method`: Input recognition method, which can be set to `Groq`, `AltaS`, or disabled (`None`). -->
+     <!-- - `alta_s_addr`: Address where the AltaS model is hosted. -->
+     <!-- - `autolaunch_alta_s`: Flag to automatically launch the AltaS model. -->
+     <!-- - `alta_s_path`: Path to the AltaS model file for automatic launching. -->
+
+4. **plugins**:
+   - Plugin parameters allow customization of plugin usage in the system:
+     - `plugins_folder`: Directory containing plugins.
+     - `config`: Dictionary specifying configurations for individual plugins.
+
+5. **open_apps**:
+   - Settings for launching applications during startup:
+     - `terminal`: Path to the terminal application.
+     - `browser`: Path to the browser application.
+
+## Configuration Example
+
+```lua
+config = {
+    net = {
+        ws_port = 8080,
+        ws_ip = "0.0.0.0"
+    },
+    logging = {
+        place = true,
+        folder = "/var/logs",
+        filescount = 10,
+        level = "debug",
+        stdout = true
+    },
+    ai = {
+        prompts_path = "./ai/prompts.yaml",
+        groq_token = "your_token_here"
+    },
+    plugins = {
+        plugins_folder = "./custom_plugins",
+        config = {
+            plugin1 = {
+                option1 = "value1",
+                option2 = "value2"
+            }
+        }
+    },
+    open_apps = {
+        terminal = "/usr/bin/gnome-terminal",
+        browser = "/usr/bin/firefox"
+    }
+}
+```
