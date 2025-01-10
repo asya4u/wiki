@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://asya4u.github.io",
 	integrations: [
 		starlight({
 			title: 'Asya docs',
