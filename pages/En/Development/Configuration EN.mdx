@@ -27,10 +27,12 @@ Currently, the following configuration parameters are available in Asya:
 | **open_apps** | `terminal`         | `OPEN_APPS_TERMINAL` | -                        | Path to the terminal to be opened. |
 | **open_apps** | `browser`          | `OPEN_APPS_BROWSER`  | -                        | Path to the browser to be opened. |
 
-<!-- | **ai**        | `recognize_method` | `AI_RECOGNIZE_METHOD`| `Groq`                    | Input recognition method. Possible values: `Groq`, `AltaS`, `None`. | -->
-<!-- | **ai**        | `alta_s_addr`      | `AI_ALTA_S_ADDR`     | -                         | Address for the AltaS model. | -->
-<!-- | **ai**        | `autolaunch_alta_s`| `AI_AUTOLAUNCH_ALTAS`| false                     | Flag to auto-launch the AltaS model. | -->
-<!-- | **ai**        | `alta_s_path`      | `AI_ALTA_S_PATH`     | -                         | Path to the AltaS model file for auto-launching. | -->
+
+{/* | **ai**        | `recognize_method` | `AI_RECOGNIZE_METHOD`| `Groq`                    | Input recognition method. Possible values: `Groq`, `AltaS`, `None`. |
+| **ai**        | `alta_s_addr`      | `AI_ALTA_S_ADDR`     | -                         | Address for the AltaS model. |
+| **ai**        | `autolaunch_alta_s`| `AI_AUTOLAUNCH_ALTAS`| false                     | Flag to auto-launch the AltaS model. |
+| **ai**        | `alta_s_path`      | `AI_ALTA_S_PATH`     | -                         | Path to the AltaS model file for auto-launching. | */}
+
 
 ## Parameter Details
 
@@ -38,7 +40,7 @@ Currently, the following configuration parameters are available in Asya:
    - These parameters configure the server's network settings:
      - `ws_port`: Port on which the WebSocket server listens. Default is `3001`.
      - `ws_ip`: IP address the WebSocket server binds to. Default is `localhost` (`127.0.0.1`).
-     <!-- - `proxy_addr`: Proxy address (to be implemented in the future). -->
+     {/* <!-- - `proxy_addr`: Proxy address (to be implemented in the future). --> */}
 
 2. **logging**:
    - Logging configuration defines where and how system activity is logged:
@@ -53,10 +55,13 @@ Currently, the following configuration parameters are available in Asya:
    - AI configuration parameters control the behavior of the AI system:
      - `prompts_path`: Path to the file with predefined AI interaction prompts.
      - `groq_token`: Token for accessing the Groq service.
-     <!-- - `recognize_method`: Input recognition method, which can be set to `Groq`, `AltaS`, or disabled (`None`). -->
+
+
+     {/* <!-- - `recognize_method`: Input recognition method, which can be set to `Groq`, `AltaS`, or disabled (`None`). -->
      <!-- - `alta_s_addr`: Address where the AltaS model is hosted. -->
      <!-- - `autolaunch_alta_s`: Flag to automatically launch the AltaS model. -->
-     <!-- - `alta_s_path`: Path to the AltaS model file for automatic launching. -->
+     <!-- - `alta_s_path`: Path to the AltaS model file for automatic launching. --> */}
+
 
 4. **plugins**:
    - Plugin parameters allow customization of plugin usage in the system:
