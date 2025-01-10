@@ -16,7 +16,7 @@ permissions:
   
 jobs:
   build:
-    name: build-static-html    
+    name: Build to static HTML  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
