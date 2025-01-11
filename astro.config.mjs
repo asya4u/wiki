@@ -9,6 +9,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Asya docs',
+			customCss: [
+				'./src/styles/custom.css'
+			],
+			components: {
+				Sidebar: './src/components/Sidebar.astro',
+			},
+
 			social: {
 				github: 'https://github.com/asya4u',
 			},
