@@ -9,6 +9,7 @@
 	--sl-color-gray-5: hsl(224, 10%, 23%);
 	--sl-color-gray-6: hsl(224, 14%, 16%);
 	--sl-color-black: hsl(224, 10%, 10%);
+	--sl-color-transparent-black: #00000040;
 
 	--sl-hue-orange: 41;
 	--sl-color-orange-low: hsl(var(--sl-hue-orange), 39%, 22%);
@@ -31,16 +32,24 @@
 	--sl-color-red: hsl(var(--sl-hue-red), 82%, 63%);
 	--sl-color-red-high: hsl(var(--sl-hue-red), 82%, 87%);
 
+	
+
 	--sl-color-accent-low: hsl(224, 54%, 20%);
 	--sl-color-accent: hsl(224, 100%, 60%);
 	--sl-color-accent-high: hsl(224, 100%, 85%);
+
+	/* reassign colors */
+	--sl-color-accent: #FDE2FF;
+	--sl-color-accent-low: #FDE2FF30;
+	--sl-color-accent-high: #FDE2FF;
+
 
 	--sl-color-text: var(--sl-color-gray-2);
 	--sl-color-text-accent: var(--sl-color-accent-high);
 	--sl-color-text-invert: var(--sl-color-accent-low);
 	--sl-color-bg: var(--sl-color-black);
-	--sl-color-bg-nav: var(--sl-color-gray-6);
-	--sl-color-bg-sidebar: var(--sl-color-gray-6);
+	--sl-color-bg-nav: var(--sl-color-gray-9);
+	--sl-color-bg-sidebar: var(--sl-color-gray-9);
 	--sl-color-bg-inline-code: var(--sl-color-gray-5);
 	--sl-color-bg-accent: var(--sl-color-accent-high);
 	--sl-color-hairline-light: var(--sl-color-gray-5);
@@ -94,7 +103,7 @@
 	/** Key layout values */
 	--sl-nav-height: 3.5rem;
 	--sl-nav-pad-x: 1rem;
-	--sl-nav-pad-y: 0.75rem;
+	--sl-nav-pad-y: 1rem;
 	--sl-mobile-toc-height: 3rem;
 	--sl-sidebar-width: 18.75rem;
 	--sl-sidebar-pad-x: 1rem;
@@ -124,6 +133,7 @@
 	--sl-color-gray-6: hsl(224, 20%, 94%);
 	--sl-color-gray-7: hsl(224, 19%, 97%);
 	--sl-color-black: hsl(0, 0%, 100%);
+	--sl-color-transparent-black: #eeeeee40;
 
 	--sl-color-orange-high: hsl(var(--sl-hue-orange), 80%, 25%);
 	--sl-color-orange: hsl(var(--sl-hue-orange), 90%, 60%);
@@ -141,9 +151,16 @@
 	--sl-color-red: hsl(var(--sl-hue-red), 90%, 60%);
 	--sl-color-red-low: hsl(var(--sl-hue-red), 80%, 90%);
 
-	--sl-color-accent-high: hsl(234, 80%, 30%);
-	--sl-color-accent: hsl(234, 90%, 60%);
+	--sl-color-accent: #a94ab0;
+	--sl-color-accent-low: #a94ab030;
+	--sl-color-accent-high: #a94ab070;
+	/* 
+	
 	--sl-color-accent-low: hsl(234, 88%, 90%);
+	--sl-color-accent-high: hsl(234, 80%, 30%);
+	--sl-color-accent: hsl(234, 90%, 60%); 
+
+	*/
 
 	--sl-color-text-accent: var(--sl-color-accent);
 	--sl-color-text-invert: var(--sl-color-black);
@@ -182,3 +199,21 @@
 		--sl-mobile-toc-height: 0rem;
 	}
 }
+
+
+.header {
+	z-index: var(--sl-z-index-navbar);
+	position: fixed;
+	inset-inline-start: 0;
+	inset-block-start: 0;
+	width: 100%;
+	height: var(--sl-nav-height);
+	border-bottom: 1px solid var(--sl-color-hairline-shade);
+
+	border-bottom: 1px solid var(--sl-color-gray-5);
+	padding: 0 1.5rem;
+	padding-inline-end: var(--sl-nav-pad-x);
+	background-color: var(--sl-color-bg-nav);
+}
+
+

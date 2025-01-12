@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import starlight from './src';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,12 +8,14 @@ export default defineConfig({
 	base: "wiki",
 	integrations: [
 		starlight({
-			title: 'Asya docs',
+			title: '🌸 Asya docs',
 			customCss: [
-				'./src/styles/custom.css'
+				'./src/styles/custom.css',
 			],
 			components: {
 				Sidebar: './src/components/Sidebar.astro',
+				Header: './src/components/Header.astro',
+				Search: './src/components/Search.astro'
 			},
 
 			social: {
