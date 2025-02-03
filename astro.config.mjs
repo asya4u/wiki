@@ -4,7 +4,7 @@ import starlight from './src';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://asya4u.github.io",
+	site: "https://asyade.su",
 	base: "wiki",
 	integrations: [
 		starlight({
